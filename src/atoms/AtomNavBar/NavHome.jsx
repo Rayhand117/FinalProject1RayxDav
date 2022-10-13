@@ -1,7 +1,11 @@
-import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-export const NavHome = () => {
+const NavHome = () => {
   return (
-    <div>NavHome</div>
+    <>
+      <NavLink end to="/"><p>Home</p></NavLink>
+    </>
   )
 }
+
+export default NavHome;

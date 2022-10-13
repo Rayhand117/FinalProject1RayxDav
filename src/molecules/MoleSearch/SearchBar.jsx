@@ -1,7 +1,21 @@
-import React from 'react'
+import SearchInput from "../../atoms/AtomSearch/SearchInput"
+import SearchIcon from "../../atoms/AtomSearch/SearchIcon";
+/** @jsxImportSource @emotion/react */
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
-export const SearchBar = () => {
+const SearchBar = () => {
   return (
-    <div>SearchBar</div>
+    <ForSearch>
+      <SearchInput />
+      <SearchIcon />
+    </ForSearch>
   )
 }
+
+const ForSearch = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export default SearchBar;

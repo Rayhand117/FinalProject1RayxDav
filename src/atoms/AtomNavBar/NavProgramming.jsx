@@ -1,7 +1,10 @@
-import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-export const NavProgramming = () => {
+const NavProgramming = () => {
   return (
-    <div>NavProgramming</div>
+    <>
+      <NavLink to="/programming"><p>Programming</p></NavLink>
+    </>
   )
 }
+export default  NavProgramming;

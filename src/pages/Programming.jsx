@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Programming = () => {
+const Programming = () => {
   return (
     <div>Programming</div>
   )
 }
+
+export default Programming;

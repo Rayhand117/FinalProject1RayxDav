@@ -1,7 +1,11 @@
-import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-export const NavSaved = () => {
+const NavSaved = () => {
   return (
-    <div>NavSaved</div>
+    <>
+      <NavLink to="/saved"><p>Saved</p></NavLink>
+    </>
   )
 }
+
+export default NavSaved;

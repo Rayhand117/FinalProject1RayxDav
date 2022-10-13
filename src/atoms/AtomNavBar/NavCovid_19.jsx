@@ -1,7 +1,11 @@
-import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-export const NavCovid_19 = () => {
+const NavCovid_19 = () => {
   return (
-    <div>NavCovid_19</div>
+    <>
+      <NavLink to="/covid_19"><p>COVID-19</p></NavLink>
+    </>
   )
 }
+
+export default NavCovid_19;
