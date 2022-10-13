@@ -118,23 +118,23 @@ const Hamburger = styled.div`
   justify-content: space-between;
   position: relative;
   /* background-color: hotpink; */
-  span:nth-child(2) {
+  span:nth-of-type(1) {
     transform-origin: 0 0;
   }
-  span:last-child {
+  span:last-of-type {
     transform-origin: 0 100%;
   }
   /* atas ke bawah */
-  input:checked ~ span:nth-child(2) {
-    background-color: white;
+  input:checked ~ span:nth-of-type(1) {
+    background-color: black;
     transform: rotate(45deg) translate(-1px, -1px);
   }
   /* bawah ke atas */
-  input:checked ~ span:last-child {
-    background-color: white;
+  input:checked ~ span:last-of-type {
+    background-color: black;
     transform: rotate(-45deg) translate(-1px, 0);
   }
-  input:checked ~ span:nth-child(3) {
+  input:checked ~ span:nth-of-type(2) {
     opacity: 0;
     transform: scale(0);
   }
