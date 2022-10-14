@@ -4,8 +4,7 @@ RCTN News merupakan situs website untuk menampilkan berita terbaru.
 
 ## Tech Stack
 
-Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Emotion](https://emotion.sh/docs/introduction).
-API : [NewsAPI](https://newsapi.org/).
+Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Emotion](https://emotion.sh/docs/introduction), serta mengambil API dari [NewsAPI](https://newsapi.org/).
 
 ## Resources
 
