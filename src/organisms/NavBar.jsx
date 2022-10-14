@@ -48,7 +48,8 @@ const NavigasiBar = styled.nav`
   justify-content: space-around;
   align-items: center;
   top: 0;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  padding: 10px 0;
   /* background-color: hotpink; */
 `;
 
