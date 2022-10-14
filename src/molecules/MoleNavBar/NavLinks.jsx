@@ -11,7 +11,7 @@ import SearchBar from "../MoleSearch/SearchBar";
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import "./slide.css";
+// import "./slide.css";
 
 const NavLinks = function () {
   const navRef = useRef();
@@ -31,7 +31,7 @@ const NavLinks = function () {
               position: "absolute",
               right: 0,
               top: -10,
-              paddingTop: 100,
+              paddingTop: 300,
               height: "100vh",
               width: "100vw",
               justifyContent: "spaceEvenly",
@@ -39,7 +39,7 @@ const NavLinks = function () {
               alignItems: "center",
               backgroundColor: "rgba(0, 0, 0, 0.5)",
               backdropFilter: "blur(10px)",
-              // zIndex: -1,
+              zIndex: 5,
               transform: "translateX(100%)",
               transition: "all 1s",
               opacity: 0,
@@ -50,6 +50,14 @@ const NavLinks = function () {
           <NavProgramming />
           <NavCovid_19 />
           <NavSaved />
+          <style>
+            {`
+              nav nav.slide {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            `}
+          </style>
         </Navigasi>
       </Navigator>
       <SearchBar />
@@ -100,7 +108,7 @@ const Navigasi = styled.nav`
     a {
       padding: 4px 33vw;
     }
-    a.active{
+    a.active {
       color: white;
       background-color: #0c0c0e;
       /* padding-right: 50%;
@@ -117,6 +125,7 @@ const Hamburger = styled.div`
   height: 20px;
   justify-content: space-between;
   position: relative;
+  z-index: 5;
   /* background-color: hotpink; */
   span:nth-of-type(1) {
     transform-origin: 0 0;
@@ -161,7 +170,7 @@ const Garis = styled.span`
   background-color: black;
 `;
 
-const breakpoints = [576, 768];
+const breakpoints = [877, 950];
 const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
 
 export default NavLinks;
