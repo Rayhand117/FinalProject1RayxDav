@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-export const SourceText = () => {
-  return (
-    <div>SourceText</div>
-  )
-}
+const SourceText = () => {
+  return <p>CNN Indonesia</p>;
+};
+
+export default SourceText;

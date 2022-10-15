@@ -1,7 +1,23 @@
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+import styled from "@emotion/styled";
 
-export const ContentTitle = () => {
+const ContentTitle = () => {
   return (
-    <div>ContentTitle</div>
-  )
-}
+    <Title>
+      <h2>Latest News</h2>
+      <span></span>
+      <span></span>
+    </Title>
+  );
+};
+
+const Title = styled.div`
+  margin-top: 20px;
+  /* font-size: 40px;
+  font-weight: 800; */
+  /* background-color: coral; */
+  display: flex;
+  justify-content: space-around;
+`;
+
+export default ContentTitle;
