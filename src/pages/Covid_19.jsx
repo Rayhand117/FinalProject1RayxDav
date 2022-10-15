@@ -22,6 +22,8 @@ const Covid_19 = () => {
 
 const Covid = styled.div`
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Cards = styled.div`

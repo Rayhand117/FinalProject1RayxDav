@@ -22,6 +22,8 @@ const Programming = () => {
 
 const Program = styled.div`
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Cards = styled.div`

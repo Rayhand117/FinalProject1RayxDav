@@ -22,6 +22,8 @@ const Saved = () => {
 
 const Save = styled.div`
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Cards = styled.div`
