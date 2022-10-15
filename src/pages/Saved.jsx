@@ -5,7 +5,7 @@ import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
 const Saved = () => {
   return (
-    <>
+    <Save>
       <ContentTitle />
       <Cards>
         <ContentCard />
@@ -16,9 +16,13 @@ const Saved = () => {
         <ContentCard />
         <ContentCard />
       </Cards>
-    </>
+    </Save>
   );
 };
+
+const Save = styled.div`
+  margin-top: 40px;
+`;
 
 const Cards = styled.div`
   display: flex;

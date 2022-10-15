@@ -28,6 +28,7 @@ const Rumah = styled.div`
   display: flex;
   // align-items: center;
   flex-direction: column;
+  margin-top: 57px;
 `;
 
 const Cards = styled.div`

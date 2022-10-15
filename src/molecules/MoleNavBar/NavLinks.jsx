@@ -30,7 +30,8 @@ const NavLinks = function () {
             [mq[0]]: {
               position: "absolute",
               right: 0,
-              top: -10,
+              top: -1,
+              // paddingBottom: "200px",
               paddingTop: 300,
               height: "100vh",
               width: "100vw",
@@ -80,6 +81,8 @@ const NavLinks = function () {
 const Navigator = styled.div`
   display: flex;
   flex-direction: row;
+  top: 0;
+  padding: 10px 0;
 `;
 
 const Navigasi = styled.nav`

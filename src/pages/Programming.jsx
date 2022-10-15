@@ -5,7 +5,7 @@ import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
 const Programming = () => {
   return (
-    <>
+    <Program>
       <ContentTitle />
       <Cards>
         <ContentCard />
@@ -16,9 +16,13 @@ const Programming = () => {
         <ContentCard />
         <ContentCard />
       </Cards>
-    </>
+    </Program>
   );
 };
+
+const Program = styled.div`
+  margin-top: 40px;
+`;
 
 const Cards = styled.div`
   display: flex;

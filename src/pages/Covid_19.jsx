@@ -5,7 +5,7 @@ import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
 const Covid_19 = () => {
   return (
-    <>
+    <Covid>
       <ContentTitle />
       <Cards>
         <ContentCard />
@@ -16,9 +16,13 @@ const Covid_19 = () => {
         <ContentCard />
         <ContentCard />
       </Cards>
-    </>
+    </Covid>
   );
 };
+
+const Covid = styled.div`
+  margin-top: 40px;
+`;
 
 const Cards = styled.div`
   display: flex;

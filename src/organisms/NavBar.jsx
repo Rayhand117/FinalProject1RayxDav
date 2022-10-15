@@ -41,15 +41,16 @@ const NavBar = () => {
 };
 
 const NavigasiBar = styled.nav`
-  position: sticky;
+  position: fixed;
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
   align-items: center;
   top: 0;
+  background-color: #DEECFF;
   /* margin-top: 10px; */
-  padding: 10px 0;
+  /* padding: 10px 0; */
   /* background-color: hotpink; */
 `;
 
