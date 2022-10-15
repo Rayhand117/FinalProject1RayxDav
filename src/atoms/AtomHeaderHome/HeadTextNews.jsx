@@ -9,7 +9,8 @@ const HeadTextNews = () => {
     <HeadText>
       <UpperText
           css={{
-            fontSize: "11px",
+            fontSize: "10px",
+            padding: "10px 10px 0 10px",
             [mq[0]]: {
               fontSize: "12px",
             },
@@ -25,7 +26,16 @@ const HeadTextNews = () => {
           read more
         </p>
       </UpperText>
-      <BottomButtons>
+      <BottomButtons
+          css={{
+            alignSelf: "center",
+            [mq[0]]: {
+              fontSize: "12px",
+            },
+            [mq[1]]: {
+              fontSize: "14px",
+            },
+          }}>
         <p>CNN Indonesia</p>
         <Simpan>
           <img src={logoSave} alt="Sv" />

@@ -41,6 +41,14 @@ const HeadCard = styled.div`
     img {
       max-width: 400px;
     }
+    @media (max-width: 420px) {
+      font-size: 13px;
+      text-align: center;
+      padding: 0 10px;
+      img {
+        max-width: 350px;
+      }
+    }
   }
   /* background-image: url(${BBCPict});
   width: 100%;
