@@ -55,7 +55,6 @@ const Cards = styled.div`
       }
     }
   }
-  }
 `;
 
 export default Home;

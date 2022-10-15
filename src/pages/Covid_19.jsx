@@ -28,6 +28,23 @@ const Cards = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+
+  @media (max-width: 737px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    align-self: center;
+    white-space: normal;
+    @media (max-width: 420px) {
+      font-size: 13px;
+      text-align: center;
+      padding: 0 10px;
+      img {
+        max-width: 350px;
+      }
+    }
+  }
 `;
 
 export default Covid_19;
