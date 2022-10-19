@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import logoSave from "../../assets/save.svg";
 import logoPocket from "../../assets/pocket.svg";
+import logoTrash from "../../assets/trash.svg"
 
 // const Kanjuruhan = require("../../assets/kanjuruhan.jpeg");
 
@@ -37,7 +38,7 @@ const CardBaru = (props) => {
         {props.dataObject[props.item.url] ? (
           <div>
             <UnSave onClick={() => unSaveBerita(props.item)}>
-              <img src={logoSave} alt="Sv" />
+              <img src={logoTrash} alt="Sv" />
               <Toggle>Unsave</Toggle>
             </UnSave>
           </div>
