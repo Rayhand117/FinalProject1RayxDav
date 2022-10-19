@@ -1,9 +1,10 @@
-import { useRef } from "react";
+// import { useRef } from "react";
+import { useState } from "react";
 import NavLinks from "../molecules/MoleNavBar/NavLinks";
 // import showNavbar from "../molecules/MoleNavBar/NavLinks";
 import Home from "../pages/Home";
 import Programming from "../pages/Programming";
-import Covid_19 from "../pages/Covid_19";
+import Covid19 from "../pages/Covid_19";
 import Saved from "../pages/Saved";
 // import SearchBar from "../molecules/MoleSearch/SearchBar";
 import { Routes, Route } from "react-router-dom";
@@ -12,29 +13,39 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
 const NavBar = () => {
+
+  const [dataArray, setDataArray] = useState([]);
+  const [dataObject, setDataObject] = useState({});
   return (
     <>
       <NavigasiBar>
         <NavLinks />
-        {/* <SearchBar /> */}
-        {/* <Hamburger
-          css={{
-            [mq[0]]: {
-              display: "flex",
-            },
-          }}
-        >
-          <CheckBox type="checkbox" onClick={showNavbar} />
-          <Garis></Garis>
-          <Garis></Garis>
-          <Garis></Garis>
-        </Hamburger> */}
       </NavigasiBar>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/programming" element={<Programming />} />
-        <Route path="/covid_19" element={<Covid_19 />} />
-        <Route path="/saved" element={<Saved />} />
+      <Route path="/" element={<Home
+                dataArray={dataArray}
+                setDataArray={setDataArray}
+                dataObject={dataObject}
+                setDataObject={setDataObject} />}
+      />
+      <Route path="/programming" element={<Programming
+                dataArray={dataArray}
+                setDataArray={setDataArray}
+                dataObject={dataObject}
+                setDataObject={setDataObject} />}
+      />
+      <Route path="/covid_19" element={<Covid19
+                dataArray={dataArray}
+                setDataArray={setDataArray}
+                dataObject={dataObject}
+                setDataObject={setDataObject} />}
+      />
+      <Route path="/saved" element={<Saved
+                dataArray={dataArray}
+                setDataArray={setDataArray}
+                dataObject={dataObject}
+                setDataObject={setDataObject} />}
+      />
       </Routes>
     </>
   );
@@ -108,3 +119,18 @@ const NavigasiBar = styled.nav`
 // const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
 
 export default NavBar;
+
+
+        // <SearchBar />
+        // <Hamburger
+        //   css={{
+        //     [mq[0]]: {
+        //       display: "flex",
+        //     },
+        //   }}
+        // >
+        //   <CheckBox type="checkbox" onClick={showNavbar} />
+        //   <Garis></Garis>
+        //   <Garis></Garis>
+        //   <Garis></Garis>
+        // </Hamburger>

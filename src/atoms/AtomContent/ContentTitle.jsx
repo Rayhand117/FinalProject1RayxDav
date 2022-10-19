@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 
-const ContentTitle = () => {
+const ContentTitle = (props) => {
   return (
     <Title>
-      <h2>Latest News</h2>
+      <h2>{props.title}Latest News</h2>
       <span></span>
       <span></span>
     </Title>

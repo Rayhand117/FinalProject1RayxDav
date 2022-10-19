@@ -4,10 +4,12 @@ import { css } from "@emotion/react";
 
 const Kanjuruhan = require("../../assets/kanjuruhan.jpeg");
 
-const ContentCardPicture = () => {
+const ContentCardPicture = (props) => {
   return (
     <CardPicture>
       <img src={Kanjuruhan} alt="kanjuruhan" />
+      {/* src={props.item.urlToImage}
+          alt={`${props.item.title}`} */}
     </CardPicture>
   );
 };

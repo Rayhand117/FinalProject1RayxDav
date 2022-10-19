@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import SourceText from "../../atoms/AtomSource/SourceText";
 import SourceSave from "../../atoms/AtomSource/SourceSave";
 import SourceRead from "./../../atoms/AtomSource/SourceRead";
@@ -32,6 +33,7 @@ const SourceStyle = styled.div`
     align-items: center;
     font-size: 12px;
     align-self: center;
+  }
 `;
 
 export default Source;

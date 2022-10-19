@@ -1,23 +1,60 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Headnya from "../molecules/MoleCardHead/Headnya";
-import ContentCard from "./../molecules/MoleCardContent/ContentCard";
+// import ContentCard from "./../molecules/MoleCardContent/ContentCard";
+import CardBaru from "../molecules/MoleCardContent/CardBaru";
 import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
-const Home = () => {
+const Home = (props) => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(true);
+
+  const getData = () => {
+    setLoading(true);
+    axios.get(`https://newsapi.org/v2/top-headlines?country=id&apiKey=252f4fa7ed9b4e878d81308fb55aaa4c`)
+      .then((response) => {
+        setData(response.data.articles);
+        setLoading(false);
+      }).catch((error) => {
+        setData([]);
+        setLoading(false);
+      })
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Rumah>
-      <Headnya />
-      <ContentTitle />
+      {/* <Headnya /> */}
+      <Title>
+        <h2>Indonesia Latest News</h2>
+        <span></span>
+        <span></span>
+      </Title>
       <Cards>
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
+      {loading ?
+        <div>
+          <h1>Loading...</h1>
+        </div>
+        : data.length !== 0 ? (
+          <>
+            {data.map((item, i) => (
+              <CardBaru
+                item={item}
+                dataArray={props.dataArray}
+                setDataArray={props.setDataArray}
+                dataObject={props.dataObject}
+                setDataObject={props.setDataObject}
+              />
+            ))}
+          </>
+        ) : 'data tidak ditemukan'}
+        {/* <ContentCard /> */}
       </Cards>
     </Rumah>
   );
@@ -28,7 +65,7 @@ const Rumah = styled.div`
   display: flex;
   // align-items: center;
   flex-direction: column;
-  margin-top: 57px;
+  margin-top: 40px;
 `;
 
 const Cards = styled.div`
@@ -56,6 +93,15 @@ const Cards = styled.div`
       }
     }
   }
+`;
+
+const Title = styled.div`
+  margin-top: 20px;
+  /* font-size: 40px;
+  font-weight: 800; */
+  /* background-color: coral; */
+  display: flex;
+  justify-content: space-around;
 `;
 
 export default Home;

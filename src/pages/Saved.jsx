@@ -1,27 +1,45 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import ContentCard from "./../molecules/MoleCardContent/ContentCard";
-import ContentTitle from "./../atoms/AtomContent/ContentTitle";
+// import ContentCard from "./../molecules/MoleCardContent/ContentCard";
+import CardBaru from "../molecules/MoleCardContent/CardBaru";
 
-const Saved = () => {
+const Saved = ({ dataArray }) => {
   return (
     <Save>
-      <ContentTitle />
       <Cards>
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
+        {dataArray.length === 0 ? (
+          <div>
+            <h1>Tidak ada berita tersimpan</h1>
+          </div>
+        ) : (
+          dataArray.map((desc, x) => (
+            <table
+            key={x}
+            >
+              <thead>
+                <tr>
+                  <th>Sources</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{desc.source.name} <a href={desc.url} target="_blank" rel="noreferrer">Read More</a></td>
+                  <td>{desc.title}</td>
+                  <td>{desc.description}</td>
+                </tr>
+              </tbody>
+            </table>
+            ))
+        )}
       </Cards>
     </Save>
   );
 };
 
 const Save = styled.div`
-  margin-top: 40px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
 `;
