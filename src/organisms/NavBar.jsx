@@ -60,10 +60,13 @@ const NavigasiBar = styled.nav`
   align-items: center;
   top: 0;
   background-color: #DEECFF;
+  z-index: 1;
   /* margin-top: 10px; */
   /* padding: 10px 0; */
   /* background-color: hotpink; */
 `;
+
+export default NavBar;
 
 // const Hamburger = styled.div`
 //   display: none;
@@ -118,19 +121,17 @@ const NavigasiBar = styled.nav`
 // const breakpoints = [576, 768];
 // const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
 
-export default NavBar;
 
-
-        // <SearchBar />
-        // <Hamburger
-        //   css={{
-        //     [mq[0]]: {
-        //       display: "flex",
-        //     },
-        //   }}
-        // >
-        //   <CheckBox type="checkbox" onClick={showNavbar} />
-        //   <Garis></Garis>
-        //   <Garis></Garis>
-        //   <Garis></Garis>
-        // </Hamburger>
+// <SearchBar />
+// <Hamburger
+//   css={{
+//     [mq[0]]: {
+//       display: "flex",
+//     },
+//   }}
+// >
+//   <CheckBox type="checkbox" onClick={showNavbar} />
+//   <Garis></Garis>
+//   <Garis></Garis>
+//   <Garis></Garis>
+// </Hamburger>

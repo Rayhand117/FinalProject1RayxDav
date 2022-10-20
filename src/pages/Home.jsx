@@ -9,26 +9,26 @@ import CardBaru from "../molecules/MoleCardContent/CardBaru";
 import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
 const Home = (props) => {
+  const HomeURL = "https://newsapi.org/v2/top-headlines?country=id&apiKey=252f4fa7ed9b4e878d81308fb55aaa4c"
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 
-  const getData = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        "https://newsapi.org/v2/top-headlines?country=id&apiKey=252f4fa7ed9b4e878d81308fb55aaa4c"
-      );
-      setData(response.data.articles);
-      setLoading(false);
-    } catch (error) {
-      setData([]);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      try {
+        const {data: { articles } } = await axios.get(HomeURL);
+        // console.log("ARTICLES", articles);
+        setData(articles);
+        setLoading(false);
+      } catch(e) {
+        // silent e
+        setData([]);
+        setLoading(false);
+      }
+    };
     getData();
-  }, []);
+  }, [])
 
   return (
     <Rumah>
@@ -48,9 +48,9 @@ const Home = (props) => {
           </div>
         ) : data.length !== 0 ? (
           <>
-            {data.map((item, i) => (
-              <CardBaru
-                item={item}
+            {data?.map((p) => (
+              <CardBaru key={p?.title}
+                item={p}
                 dataArray={props.dataArray}
                 setDataArray={props.setDataArray}
                 dataObject={props.dataObject}

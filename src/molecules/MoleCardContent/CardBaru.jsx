@@ -63,6 +63,22 @@ const CardBaru = (props) => {
   );
 };
 
+const FlexRow = css`
+  display: flex;
+  flex-direction: row;
+`;
+
+const AnmTransisi = css`
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+`;
+
+const FlexCentered = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Toggle = styled.div `
   padding-left: 8px;
 `;
@@ -70,6 +86,24 @@ const Toggle = styled.div `
 const Card = styled.div`
   flex: 0 0 400px;
   margin: 10px;
+  background-color: #DEECFF;
+  ${AnmTransisi};
+  ::after {
+    content: "";
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+    opacity: 0;
+    ${AnmTransisi};
+  }
+  :hover {
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
+    -webkit-transform: scale(1.05, 1.05);
+  }
+  :hover::after {
+    opacity: 1;
+  }
 `;
 
 const CardPicture = styled.div`
@@ -92,9 +126,7 @@ const CardPicture = styled.div`
     border-radius: 10px;
   }
   @media (max-width: 737px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    ${FlexCentered};
     font-size: 14px;
     img {
       max-width: 400px;
@@ -137,8 +169,7 @@ const Deskripsi = styled.div`
 const SourceStyle = styled.div`
   /* background-color: hotpink; */
   margin-top: 10px;
-  display: flex;
-  flex-direction: row;
+  ${FlexRow};
   align-items: center;
   div {
     margin: 0 5px;
@@ -155,9 +186,7 @@ const SourceStyle = styled.div`
     margin-left: auto;
   }
   @media (max-width: 737px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    ${FlexCentered};
     font-size: 12px;
     align-self: center;
   }
@@ -171,54 +200,40 @@ const SourceStyle = styled.div`
   }
 `;
 
-const Sumber = styled.span `/* span */
+const Sumber = styled.span`
   padding: 5px 0;
   max-width: 180px;
 `;
 
-const Simpan = styled.div`
-  display: flex;
-  flex-direction: row;
+const TombolReuse = css`
+  ${FlexRow};
   cursor: pointer;
-  padding: 5px;background-color: hsl(104, 100%, 88.8235294117647%);
+  padding: 5px;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
+  ${AnmTransisi};
   :hover {
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.3);
   }
+`;
+
+const Simpan = styled.div`
+  ${TombolReuse};
+  background-color: hsl(104, 100%, 88.8235294117647%);
 `;
 
 const UnSave = styled.div`
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
-  padding: 5px;
+  ${TombolReuse};
   background-color: hsl(0, 100%, 88.8235294117647%);
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  :hover {
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-  }
 `;
 
 const Baca = styled.div`
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
-  background-color: #E8D3FF;
-  border-radius: 5px;
-  padding: 5px;
-  align-items: center;
-  justify-content: center;
+  ${TombolReuse};
   a {
-    display: flex;
-    flex-direction: row;
+    ${FlexRow};
   }
-  :hover {
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-  }
+  background-color: #E8D3FF;
 `;
 
 const ReadMore = styled.a`

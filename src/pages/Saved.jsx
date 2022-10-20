@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 // import ContentCard from "./../molecules/MoleCardContent/ContentCard";
 import CardBaru from "../molecules/MoleCardContent/CardBaru";
 
@@ -15,41 +16,23 @@ const Saved = ({ dataArray }) => {
             <h1>Tidak ada berita tersimpan</h1>
           </div>
         ) : (
-          dataArray.map((desc, x) => (
-            // <table
-            // key={x}
-            // >
-            //   <thead>
-            //     <tr>
-            //       <th>Sources</th>
-            //       <th>Title</th>
-            //       <th>Description</th>
-            //     </tr>
-            //   </thead>
-            //   <tbody>
-            //     <tr>
-            //       <td>{desc.source.name} <a href={desc.url} target="_blank" rel="noreferrer">Read More</a></td>
-            //       <td>{desc.title}</td>
-            //       <td>{desc.description}</td>
-            //     </tr>
-            //   </tbody>
-            // </table>
-            <Card key={x}>
+          dataArray?.map((p) => (
+            <Card key={p?.title}>
               <CardPicture>
-                <img src={desc.urlToImage} alt={`${desc.title}`} />
+                <img src={p.urlToImage} alt={`${p.title}`} />
               </CardPicture>
               <SourceStyle>
                 <Sumber>
-                  <a href={desc.url} target="_blank" rel="noreferrer">
-                    {desc.source.name}
+                  <a href={p.url} target="_blank" rel="noreferrer">
+                    {p.source.name}
                   </a>
                 </Sumber>
               </SourceStyle>
               <Judul>
-                <p>{desc.title}</p>
+                <p>{p.title}</p>
               </Judul>
               <Deskripsi>
-                <p>{desc.description}</p>
+                <p>{p.description}</p>
               </Deskripsi>
             </Card>
           ))
@@ -209,6 +192,9 @@ const Sumber = styled.span`
   /* span */
   padding: 5px 0;
   max-width: 180px;
+  a {
+    color: rgb(255, 0, 128);
+  }
 `;
 
 export default Saved;
