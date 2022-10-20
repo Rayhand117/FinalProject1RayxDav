@@ -132,7 +132,6 @@ const NavBar = () => {
               setDataArray={setDataArray}
               dataObject={dataObject}
               setDataObject={setDataObject}
-              value={search}
             />
           }
         />
@@ -144,7 +143,6 @@ const NavBar = () => {
               setDataArray={setDataArray}
               dataObject={dataObject}
               setDataObject={setDataObject}
-              value={search}
             />
           }
         />
@@ -156,25 +154,20 @@ const NavBar = () => {
               setDataArray={setDataArray}
               dataObject={dataObject}
               setDataObject={setDataObject}
-              value={search}
             />
           }
         />
-        <Route
-          path="/saved"
-          element={<Saved dataArray={dataArray} value={search} />}
-        />
+        <Route path="/saved" element={<Saved dataArray={dataArray} />} />
         <Route
           path="/search"
           element={
             <Search
-              data={data}
               dataArray={dataArray}
               setDataArray={setDataArray}
               dataObject={dataObject}
               setDataObject={setDataObject}
+              data={data}
               loading={loading}
-              value={search}
             />
           }
         />

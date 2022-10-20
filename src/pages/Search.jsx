@@ -13,7 +13,7 @@ const Search = (props) => {
   return (
     <SearchPage>
       <Title>
-        <h2>Programming Latest News</h2>
+        <h2>Search Results</h2>
         <span></span>
         <span></span>
       </Title>
