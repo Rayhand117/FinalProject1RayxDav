@@ -12,17 +12,19 @@ const Home = (props) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 
-  const getData = () => {
+  const getData = async () => {
     setLoading(true);
-    axios.get(`https://newsapi.org/v2/top-headlines?country=id&apiKey=252f4fa7ed9b4e878d81308fb55aaa4c`)
-      .then((response) => {
-        setData(response.data.articles);
-        setLoading(false);
-      }).catch((error) => {
-        setData([]);
-        setLoading(false);
-      })
-  }
+    try {
+      const response = await axios.get(
+        "https://newsapi.org/v2/top-headlines?country=id&apiKey=252f4fa7ed9b4e878d81308fb55aaa4c"
+      );
+      setData(response.data.articles);
+      setLoading(false);
+    } catch (error) {
+      setData([]);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     getData();
@@ -37,11 +39,14 @@ const Home = (props) => {
         <span></span>
       </Title>
       <Cards>
-      {loading ?
-        <div>
-          <h1>Loading...</h1>
-        </div>
-        : data.length !== 0 ? (
+        {loading ? (
+          <div>
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif"
+              alt="Loading..."
+            />
+          </div>
+        ) : data.length !== 0 ? (
           <>
             {data.map((item, i) => (
               <CardBaru
@@ -53,7 +58,9 @@ const Home = (props) => {
               />
             ))}
           </>
-        ) : 'data tidak ditemukan'}
+        ) : (
+          "data tidak ditemukan"
+        )}
         {/* <ContentCard /> */}
       </Cards>
     </Rumah>
@@ -96,12 +103,12 @@ const Cards = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: 20px;
+  margin: 40px;
   /* font-size: 40px;
   font-weight: 800; */
   /* background-color: coral; */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 export default Home;

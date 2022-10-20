@@ -6,6 +6,9 @@ import CardBaru from "../molecules/MoleCardContent/CardBaru";
 const Saved = ({ dataArray }) => {
   return (
     <Save>
+      <Title>
+        <h2>Saved</h2>
+      </Title>
       <Cards>
         {dataArray.length === 0 ? (
           <div>
@@ -13,25 +16,43 @@ const Saved = ({ dataArray }) => {
           </div>
         ) : (
           dataArray.map((desc, x) => (
-            <table
-            key={x}
-            >
-              <thead>
-                <tr>
-                  <th>Sources</th>
-                  <th>Title</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{desc.source.name} <a href={desc.url} target="_blank" rel="noreferrer">Read More</a></td>
-                  <td>{desc.title}</td>
-                  <td>{desc.description}</td>
-                </tr>
-              </tbody>
-            </table>
-            ))
+            // <table
+            // key={x}
+            // >
+            //   <thead>
+            //     <tr>
+            //       <th>Sources</th>
+            //       <th>Title</th>
+            //       <th>Description</th>
+            //     </tr>
+            //   </thead>
+            //   <tbody>
+            //     <tr>
+            //       <td>{desc.source.name} <a href={desc.url} target="_blank" rel="noreferrer">Read More</a></td>
+            //       <td>{desc.title}</td>
+            //       <td>{desc.description}</td>
+            //     </tr>
+            //   </tbody>
+            // </table>
+            <Card key={x}>
+              <CardPicture>
+                <img src={desc.urlToImage} alt={`${desc.title}`} />
+              </CardPicture>
+              <SourceStyle>
+                <Sumber>
+                  <a href={desc.url} target="_blank" rel="noreferrer">
+                    {desc.source.name}
+                  </a>
+                </Sumber>
+              </SourceStyle>
+              <Judul>
+                <p>{desc.title}</p>
+              </Judul>
+              <Deskripsi>
+                <p>{desc.description}</p>
+              </Deskripsi>
+            </Card>
+          ))
         )}
       </Cards>
     </Save>
@@ -42,6 +63,15 @@ const Save = styled.div`
   margin-top: 60px;
   display: flex;
   flex-direction: column;
+`;
+
+const Title = styled.div`
+  margin: 20px;
+  /* font-size: 40px;
+  font-weight: 800; */
+  /* background-color: coral; */
+  display: flex;
+  justify-content: center;
 `;
 
 const Cards = styled.div`
@@ -69,6 +99,116 @@ const Cards = styled.div`
       }
     }
   }
+`;
+
+const Card = styled.div`
+  flex: 0 0 400px;
+  margin: 10px;
+`;
+
+const CardPicture = styled.div`
+  /* position: relative; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  /* background-color: black; */
+  img {
+    width: 100%;
+    max-width: 400px;
+    /* height: auto; */
+    min-height: 225px;
+    max-height: 225px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    display: block;
+    border-radius: 10px;
+  }
+  @media (max-width: 737px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    img {
+      max-width: 400px;
+    }
+    @media (max-width: 420px) {
+      font-size: 13px;
+      text-align: center;
+      padding: 0 10px;
+      img {
+        max-width: 350px;
+      }
+    }
+  }
+`;
+
+const Judul = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  p {
+    font-size: 1.6em;
+    font-weight: 500;
+    color: black;
+    white-space: normal;
+  }
+`;
+
+const Deskripsi = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  p {
+    font-size: 1em;
+    font-weight: 400;
+    color: black;
+    white-space: normal;
+  }
+`;
+
+const SourceStyle = styled.div`
+  /* background-color: hotpink; */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  div {
+    margin: 0 5px;
+  }
+  img {
+    width: 20px;
+    /* height: 20px; */
+  }
+  p {
+    color: gray;
+  }
+  div:nth-of-type(1) {
+    /* background-color: black; */
+    margin-left: auto;
+  }
+  @media (max-width: 737px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    align-self: center;
+  }
+  div:nth-of-type(1) {
+    margin-left: auto;
+  }
+  @media (max-width: 420px) {
+    div:nth-of-type(1) {
+      margin-left: 0;
+    }
+  }
+`;
+
+const Sumber = styled.span`
+  /* span */
+  padding: 5px 0;
+  max-width: 180px;
 `;
 
 export default Saved;
