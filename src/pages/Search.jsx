@@ -1,44 +1,24 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-// import ContentCard from "./../molecules/MoleCardContent/ContentCard";
+import { useEffect, useState } from "react";
 import CardBaru from "../molecules/MoleCardContent/CardBaru";
-import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
-const Covid_19 = (props) => {
-  const CovidURL =
-    "https://newsapi.org/v2/everything?q=covid-19&apiKey=cadea5ed90594916ae9faa2c4aaaec1c";
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(true);
+const Search = (props) => {
+  const [data, setData] = useState(props.data);
 
   useEffect(() => {
-    const getData = async () => {
-      setLoading(true);
-      try {
-        const {data: { articles } } = await axios.get(CovidURL);
-        // console.log("ARTICLES", articles);
-        setData(articles);
-        setLoading(false);
-      } catch(e) {
-        // silent e
-        setData([]);
-        setLoading(false);
-      }
-    };
-    getData();
-  }, [])
-
+    setData(props.data);
+  }, [props.data]);
   return (
-    <Covid>
+    <SearchPage>
       <Title>
-        <h2>Covid 19 Latest News</h2>
+        <h2>Programming Latest News</h2>
         <span></span>
         <span></span>
       </Title>
       <Cards>
-        {loading ? (
+        {props.loading ? (
           <div>
             <img
               src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif"
@@ -48,7 +28,8 @@ const Covid_19 = (props) => {
         ) : data.length !== 0 ? (
           <>
             {data?.map((p) => (
-              <CardBaru key={p?.title}
+              <CardBaru
+                key={p?.title}
                 item={p}
                 dataArray={props.dataArray}
                 setDataArray={props.setDataArray}
@@ -62,11 +43,11 @@ const Covid_19 = (props) => {
         )}
         {/* <ContentCard /> */}
       </Cards>
-    </Covid>
+    </SearchPage>
   );
 };
 
-const Covid = styled.div`
+const SearchPage = styled.div`
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -107,5 +88,4 @@ const Title = styled.div`
   display: flex;
   justify-content: center;
 `;
-
-export default Covid_19;
+export default Search;

@@ -8,7 +8,8 @@ import CardBaru from "../molecules/MoleCardContent/CardBaru";
 import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
 const Programming = (props) => {
-  const ProgrammingURL = "https://newsapi.org/v2/everything?q=programming&apiKey=252f4fa7ed9b4e878d81308fb55aaa4c"
+  const ProgrammingURL =
+    "https://newsapi.org/v2/everything?q=programming&apiKey=cadea5ed90594916ae9faa2c4aaaec1c";
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 

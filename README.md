@@ -4,7 +4,7 @@ RCTN News merupakan situs website untuk menampilkan berita terbaru.
 
 ## Tech Stack
 
-Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Emotion](https://emotion.sh/docs/introduction).
+Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Emotion](https://emotion.sh/docs/introduction) serta mengambil API dari [NewsAPI](https://newsapi.org/).
 
 ## Resources
 
@@ -15,5 +15,10 @@ Desain bisa dilihat pada [Figma](https://www.figma.com/file/Ps0ucPC1PYskRu0TZxxK
 1. Rayhand Fernanda Viantama - RCTN-KS06-021
 2. Muhammad David Kurniawan - RCTN-KS06-022
 
-Program React and React Native for Front End Developer
-Hacktiv8 Indonesia
+## Kelas
+
+React and React Native for Front End Developer - Hacktiv8 Indonesia
+
+## Program
+
+Studi Independen Bersertifikat oleh Kampus Merdeka Batch 3

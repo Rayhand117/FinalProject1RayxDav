@@ -9,7 +9,8 @@ import CardBaru from "../molecules/MoleCardContent/CardBaru";
 import ContentTitle from "./../atoms/AtomContent/ContentTitle";
 
 const Home = (props) => {
-  const HomeURL = "https://newsapi.org/v2/top-headlines?country=id&apiKey=252f4fa7ed9b4e878d81308fb55aaa4c"
+  const HomeURL =
+    "https://newsapi.org/v2/top-headlines?country=id&apiKey=cadea5ed90594916ae9faa2c4aaaec1c";
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 
