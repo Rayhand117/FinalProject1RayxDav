@@ -3,13 +3,11 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import logoSave from "../../assets/save.svg";
 import logoPocket from "../../assets/pocket.svg";
-import logoTrash from "../../assets/trash.svg"
+import logoTrash from "../../assets/trash.svg";
 
-// const Kanjuruhan = require("../../assets/kanjuruhan.jpeg");
-
-const CardBaru = (props) => {
-  const openInNewTab = url => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+const NewsCard = (props) => {
+  const openInNewTab = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const saveBerita = (e) => {
@@ -53,9 +51,7 @@ const CardBaru = (props) => {
         <div>
           <Baca onClick={() => openInNewTab(props.item.url)}>
             <img src={logoPocket} alt="Rm" />
-            <ReadMore>
-              Read More
-            </ReadMore>
+            <ReadMore>Read More</ReadMore>
           </Baca>
         </div>
       </SourceStyle>
@@ -79,14 +75,14 @@ const FlexCentered = css`
   align-items: center;
 `;
 
-const Toggle = styled.div `
+const Toggle = styled.div`
   padding-left: 8px;
 `;
 
 const Card = styled.div`
   flex: 0 0 400px;
   margin: 10px;
-  background-color: #DEECFF;
+  background-color: #deecff;
   ${AnmTransisi};
   ::after {
     content: "";
@@ -107,17 +103,14 @@ const Card = styled.div`
 `;
 
 const CardPicture = styled.div`
-  /* position: relative; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  /* background-color: black; */
   img {
     width: 100%;
     max-width: 400px;
-    /* height: auto; */
     min-height: 225px;
     max-height: 225px;
     object-fit: cover;
@@ -167,7 +160,6 @@ const Deskripsi = styled.div`
 `;
 
 const SourceStyle = styled.div`
-  /* background-color: hotpink; */
   margin-top: 10px;
   ${FlexRow};
   align-items: center;
@@ -176,13 +168,11 @@ const SourceStyle = styled.div`
   }
   img {
     width: 20px;
-    /* height: 20px; */
   }
   p {
     color: gray;
   }
   div:nth-of-type(1) {
-    /* background-color: black; */
     margin-left: auto;
   }
   @media (max-width: 737px) {
@@ -195,8 +185,8 @@ const SourceStyle = styled.div`
   }
   @media (max-width: 420px) {
     div:nth-of-type(1) {
-    margin-left: 0;
-  }
+      margin-left: 0;
+    }
   }
 `;
 
@@ -214,7 +204,7 @@ const TombolReuse = css`
   justify-content: center;
   ${AnmTransisi};
   :hover {
-    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -233,14 +223,13 @@ const Baca = styled.div`
   a {
     ${FlexRow};
   }
-  background-color: #E8D3FF;
+  background-color: #e8d3ff;
 `;
 
 const ReadMore = styled.a`
   padding-left: 8px;
   text-decoration: none;
   color: black;
-  /* width: 100px; */
 `;
 
-export default CardBaru;
+export default NewsCard;

@@ -1,8 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-// import ContentCard from "./../molecules/MoleCardContent/ContentCard";
-import CardBaru from "../molecules/MoleCardContent/CardBaru";
+// import { css } from "@emotion/react";
 
 const Saved = ({ dataArray }) => {
   return (
@@ -17,7 +15,7 @@ const Saved = ({ dataArray }) => {
           </div>
         ) : (
           dataArray?.map((p) => (
-            <Card key={p?.title}>
+            <Card key={p?.url}>
               <CardPicture>
                 <img src={p.urlToImage} alt={`${p.title}`} />
               </CardPicture>
@@ -50,9 +48,6 @@ const Save = styled.div`
 
 const Title = styled.div`
   margin: 20px;
-  /* font-size: 40px;
-  font-weight: 800; */
-  /* background-color: coral; */
   display: flex;
   justify-content: center;
 `;
@@ -90,17 +85,14 @@ const Card = styled.div`
 `;
 
 const CardPicture = styled.div`
-  /* position: relative; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  /* background-color: black; */
   img {
     width: 100%;
     max-width: 400px;
-    /* height: auto; */
     min-height: 225px;
     max-height: 225px;
     object-fit: cover;
@@ -152,7 +144,6 @@ const Deskripsi = styled.div`
 `;
 
 const SourceStyle = styled.div`
-  /* background-color: hotpink; */
   margin-top: 10px;
   display: flex;
   flex-direction: row;
@@ -162,13 +153,11 @@ const SourceStyle = styled.div`
   }
   img {
     width: 20px;
-    /* height: 20px; */
   }
   p {
     color: gray;
   }
   div:nth-of-type(1) {
-    /* background-color: black; */
     margin-left: auto;
   }
   @media (max-width: 737px) {

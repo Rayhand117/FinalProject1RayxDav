@@ -3,9 +3,7 @@ import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-// import ContentCard from "./../molecules/MoleCardContent/ContentCard";
-import CardBaru from "../molecules/MoleCardContent/CardBaru";
-import ContentTitle from "./../atoms/AtomContent/ContentTitle";
+import NewsCard from "../molecules/MoleCardContent/NewsCard";
 
 const Covid_19 = (props) => {
   const CovidURL =
@@ -17,18 +15,18 @@ const Covid_19 = (props) => {
     const getData = async () => {
       setLoading(true);
       try {
-        const {data: { articles } } = await axios.get(CovidURL);
+        const { data: { articles }, } = await axios.get(CovidURL);
         // console.log("ARTICLES", articles);
         setData(articles);
         setLoading(false);
-      } catch(e) {
-        // silent e
+      } catch (e) {
+        // nopes e
         setData([]);
         setLoading(false);
       }
     };
     getData();
-  }, [])
+  }, []);
 
   return (
     <Covid>
@@ -48,7 +46,8 @@ const Covid_19 = (props) => {
         ) : data.length !== 0 ? (
           <>
             {data?.map((p) => (
-              <CardBaru key={p?.title}
+              <NewsCard
+                key={p?.url}
                 item={p}
                 dataArray={props.dataArray}
                 setDataArray={props.setDataArray}
@@ -60,7 +59,6 @@ const Covid_19 = (props) => {
         ) : (
           "data tidak ditemukan"
         )}
-        {/* <ContentCard /> */}
       </Cards>
     </Covid>
   );
@@ -101,9 +99,6 @@ const Cards = styled.div`
 
 const Title = styled.div`
   margin: 40px;
-  /* font-size: 40px;
-  font-weight: 800; */
-  /* background-color: coral; */
   display: flex;
   justify-content: center;
 `;

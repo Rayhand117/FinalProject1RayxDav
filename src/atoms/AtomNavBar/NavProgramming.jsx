@@ -1,10 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const NavProgramming = () => {
   return (
     <>
-      <NavLink to="/programming"><p>Programming</p></NavLink>
+      <NavLink to="/programming">
+        <p>Programming</p>
+      </NavLink>
     </>
-  )
-}
-export default  NavProgramming;
+  );
+};
+export default NavProgramming;

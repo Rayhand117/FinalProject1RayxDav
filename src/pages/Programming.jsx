@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-// import ContentCard from "./../molecules/MoleCardContent/ContentCard";
-import CardBaru from "../molecules/MoleCardContent/CardBaru";
-import ContentTitle from "./../atoms/AtomContent/ContentTitle";
+// import { css } from "@emotion/react";
+import NewsCard from "../molecules/MoleCardContent/NewsCard";
 
 const Programming = (props) => {
   const ProgrammingURL =
@@ -17,18 +15,18 @@ const Programming = (props) => {
     const getData = async () => {
       setLoading(true);
       try {
-        const {data: { articles } } = await axios.get(ProgrammingURL);
+        const { data: { articles }, } = await axios.get(ProgrammingURL);
         // console.log("ARTICLES", articles);
         setData(articles);
         setLoading(false);
-      } catch(e) {
-        // silent e
+      } catch (e) {
+        // nopes e
         setData([]);
         setLoading(false);
       }
     };
     getData();
-  }, [])
+  }, []);
 
   return (
     <Program>
@@ -48,7 +46,8 @@ const Programming = (props) => {
         ) : data.length !== 0 ? (
           <>
             {data?.map((p) => (
-              <CardBaru key={p?.title}
+              <NewsCard
+                key={p?.url}
                 item={p}
                 dataArray={props.dataArray}
                 setDataArray={props.setDataArray}
@@ -60,7 +59,6 @@ const Programming = (props) => {
         ) : (
           "data tidak ditemukan"
         )}
-        {/* <ContentCard /> */}
       </Cards>
     </Program>
   );
@@ -101,9 +99,6 @@ const Cards = styled.div`
 
 const Title = styled.div`
   margin: 40px;
-  /* font-size: 40px;
-  font-weight: 800; */
-  /* background-color: coral; */
   display: flex;
   justify-content: center;
 `;

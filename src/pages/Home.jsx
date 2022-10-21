@@ -3,10 +3,7 @@ import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import Headnya from "../molecules/MoleCardHead/Headnya";
-// import ContentCard from "./../molecules/MoleCardContent/ContentCard";
-import CardBaru from "../molecules/MoleCardContent/CardBaru";
-import ContentTitle from "./../atoms/AtomContent/ContentTitle";
+import NewsCard from "../molecules/MoleCardContent/NewsCard";
 
 const Home = (props) => {
   const HomeURL =
@@ -18,22 +15,21 @@ const Home = (props) => {
     const getData = async () => {
       setLoading(true);
       try {
-        const {data: { articles } } = await axios.get(HomeURL);
+        const { data: { articles }, } = await axios.get(HomeURL);
         // console.log("ARTICLES", articles);
         setData(articles);
         setLoading(false);
-      } catch(e) {
-        // silent e
+      } catch (e) {
+        // nopes e
         setData([]);
         setLoading(false);
       }
     };
     getData();
-  }, [])
+  }, []);
 
   return (
     <Rumah>
-      {/* <Headnya /> */}
       <Title>
         <h2>Indonesia Latest News</h2>
         <span></span>
@@ -50,7 +46,8 @@ const Home = (props) => {
         ) : data.length !== 0 ? (
           <>
             {data?.map((p) => (
-              <CardBaru key={p?.title}
+              <NewsCard
+                key={p?.url}
                 item={p}
                 dataArray={props.dataArray}
                 setDataArray={props.setDataArray}
@@ -62,16 +59,13 @@ const Home = (props) => {
         ) : (
           "data tidak ditemukan"
         )}
-        {/* <ContentCard /> */}
       </Cards>
     </Rumah>
   );
 };
 
 const Rumah = styled.div`
-  /* background-color: lightgray; */
   display: flex;
-  // align-items: center;
   flex-direction: column;
   margin-top: 40px;
 `;
@@ -105,9 +99,6 @@ const Cards = styled.div`
 
 const Title = styled.div`
   margin: 40px;
-  /* font-size: 40px;
-  font-weight: 800; */
-  /* background-color: coral; */
   display: flex;
   justify-content: center;
 `;
