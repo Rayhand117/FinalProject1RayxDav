@@ -30,7 +30,7 @@ const NavBar = () => {
     navigate("/search");
     try {
       const { data: { articles }, } = await axios.get(
-        `https://newsapi.org/v2/everything?q=${search}&apiKey=cadea5ed90594916ae9faa2c4aaaec1c`
+        `${process.env.REACT_APP_BASE_URL}everything?q=${search}&apiKey=${process.env.REACT_APP_API_KEY}`
       );
       setData(articles);
       setLoading(false);

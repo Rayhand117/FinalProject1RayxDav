@@ -7,7 +7,7 @@ import NewsCard from "../molecules/MoleCardContent/NewsCard";
 
 const Home = (props) => {
   const HomeURL =
-    "https://newsapi.org/v2/top-headlines?country=id&apiKey=cadea5ed90594916ae9faa2c4aaaec1c";
+    `${process.env.REACT_APP_BASE_URL}top-headlines?country=id&apiKey=${process.env.REACT_APP_API_KEY}`;
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 

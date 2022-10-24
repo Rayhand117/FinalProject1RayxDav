@@ -6,8 +6,7 @@ import styled from "@emotion/styled";
 import NewsCard from "../molecules/MoleCardContent/NewsCard";
 
 const Programming = (props) => {
-  const ProgrammingURL =
-    "https://newsapi.org/v2/everything?q=programming&apiKey=cadea5ed90594916ae9faa2c4aaaec1c";
+  const ProgrammingURL = `${process.env.REACT_APP_BASE_URL}everything?q=programming&apiKey=${process.env.REACT_APP_API_KEY}`;
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 
@@ -15,7 +14,9 @@ const Programming = (props) => {
     const getData = async () => {
       setLoading(true);
       try {
-        const { data: { articles }, } = await axios.get(ProgrammingURL);
+        const {
+          data: { articles },
+        } = await axios.get(ProgrammingURL);
         // console.log("ARTICLES", articles);
         setData(articles);
         setLoading(false);
