@@ -35,20 +35,16 @@ const NewsCard = (props) => {
   // console.log("dataArray", dataArray);
 
   const saveBerita = (e) => {
-    dispatch(
-      saveNews({
+    dispatch(saveNews({
         dataArray: [...dataArray, e],
         dataObject: { ...dataObject, [e.url]: true },
-      })
-    );
+      }))
   };
   const unSaveBerita = (e) => {
-    dispatch(
-      unSaveNews({
+    dispatch(unSaveNews({
         dataArray: dataArray.filter((item) => item.url !== e.url),
         dataObject: { ...dataObject, [e.url]: false },
-      })
-    );
+      }))
   };
   return (
     <Card>

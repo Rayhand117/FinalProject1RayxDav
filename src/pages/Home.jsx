@@ -5,9 +5,9 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import NewsCard from "../molecules/MoleCardContent/NewsCard";
 import { Wrapper, Cards, Title } from "./PageWrapper.styled";
+const HomeURL = `${process.env.REACT_APP_BASE_URL}top-headlines?country=id&apiKey=${process.env.REACT_APP_API_KEY}`;
 
 const Home = () => {
-  const HomeURL = `${process.env.REACT_APP_BASE_URL}top-headlines?country=id&apiKey=${process.env.REACT_APP_API_KEY}`;
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 

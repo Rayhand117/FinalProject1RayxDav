@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-// import { css } from "@emotion/react";
+import { css } from "@emotion/react";
 import { useSelector } from "react-redux";
-import NewsCard from "../molecules/MoleCardContent/NewsCard";
 import { Wrapper, Cards, Title } from "./PageWrapper.styled";
 import {
   Card,
@@ -14,7 +13,7 @@ import {
 } from "../molecules/MoleCardContent/CardWrapper.styled";
 
 const Saved = () => {
-  const dataArray = useSelector((state) => state.news.dataArray);
+  const dataArray = useSelector(state => state.news.dataArray);
   return (
     <Wrapper>
       <Title>
@@ -35,11 +34,12 @@ const Saved = () => {
               </CardPicture>
               <SourceStyle>
                 <Sumber>
-                  <a href={p.url} target="_blank" rel="noreferrer">
+                  <a href={p.url} target="_blank" rel="noreferrer"
+                  css={{
+                    color: "rgb(255, 0, 128)",
+                  }}
+                  >
                     {p.source.name}
-                    css={{
-                      color: "rgb(255, 0, 128)",
-                    }}
                   </a>
                 </Sumber>
               </SourceStyle>
