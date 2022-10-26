@@ -15,7 +15,7 @@ import NavProgramming from "../atoms/AtomNavBar/NavProgramming";
 import NavCovid_19 from "../atoms/AtomNavBar/NavCovid_19";
 import NavSaved from "../atoms/AtomNavBar/NavSaved";
 import axios from "axios";
-import logoCari from "../assets/cari.svg"
+import logoCari from "../assets/cari.svg";
 
 const NavBar = () => {
   const [dataArray, setDataArray] = useState([]);
@@ -29,7 +29,9 @@ const NavBar = () => {
     setLoading(true);
     navigate("/search");
     try {
-      const { data: { articles }, } = await axios.get(
+      const {
+        data: { articles },
+      } = await axios.get(
         `${process.env.REACT_APP_BASE_URL}everything?q=${search}&apiKey=${process.env.REACT_APP_API_KEY}`
       );
       setData(articles);
@@ -40,11 +42,11 @@ const NavBar = () => {
     }
   };
 
-  const handleKeyPress = e => {
-    if(e.keyCode === 13) {
-      searchNews()
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 13) {
+      searchNews();
     }
-  }
+  };
 
   const navRef = useRef();
 
@@ -123,52 +125,13 @@ const NavBar = () => {
         </Hamburger>
       </NavigasiBar>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              dataArray={dataArray}
-              setDataArray={setDataArray}
-              dataObject={dataObject}
-              setDataObject={setDataObject}
-            />
-          }
-        />
-        <Route
-          path="/programming"
-          element={
-            <Programming
-              dataArray={dataArray}
-              setDataArray={setDataArray}
-              dataObject={dataObject}
-              setDataObject={setDataObject}
-            />
-          }
-        />
-        <Route
-          path="/covid_19"
-          element={
-            <Covid19
-              dataArray={dataArray}
-              setDataArray={setDataArray}
-              dataObject={dataObject}
-              setDataObject={setDataObject}
-            />
-          }
-        />
-        <Route path="/saved" element={<Saved dataArray={dataArray} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/programming" element={<Programming />} />
+        <Route path="/covid_19" element={<Covid19 />} />
+        <Route path="/saved" element={<Saved />} />
         <Route
           path="/search"
-          element={
-            <Search
-              dataArray={dataArray}
-              setDataArray={setDataArray}
-              dataObject={dataObject}
-              setDataObject={setDataObject}
-              data={data}
-              loading={loading}
-            />
-          }
+          element={<Search data={data} loading={loading} />}
         />
       </Routes>
     </>
@@ -287,7 +250,6 @@ const Garis = styled.span`
 
 const breakpoints = [877, 950];
 const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
-
 
 // SEARCH BAR ----------------------------------------------------
 const ForSearch = styled.div`

@@ -4,10 +4,10 @@ import axios from "axios";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import NewsCard from "../molecules/MoleCardContent/NewsCard";
+import { Wrapper, Cards, Title } from "./PageWrapper.styled";
 
-const Home = (props) => {
-  const HomeURL =
-    `${process.env.REACT_APP_BASE_URL}top-headlines?country=id&apiKey=${process.env.REACT_APP_API_KEY}`;
+const Home = () => {
+  const HomeURL = `${process.env.REACT_APP_BASE_URL}top-headlines?country=id&apiKey=${process.env.REACT_APP_API_KEY}`;
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(true);
 
@@ -15,7 +15,9 @@ const Home = (props) => {
     const getData = async () => {
       setLoading(true);
       try {
-        const { data: { articles }, } = await axios.get(HomeURL);
+        const {
+          data: { articles },
+        } = await axios.get(HomeURL);
         // console.log("ARTICLES", articles);
         setData(articles);
         setLoading(false);
@@ -29,7 +31,7 @@ const Home = (props) => {
   }, []);
 
   return (
-    <Rumah>
+    <Wrapper>
       <Title>
         <h2>Indonesia Latest News</h2>
         <span></span>
@@ -46,61 +48,15 @@ const Home = (props) => {
         ) : data.length !== 0 ? (
           <>
             {data?.map((p) => (
-              <NewsCard
-                key={p?.url}
-                item={p}
-                dataArray={props.dataArray}
-                setDataArray={props.setDataArray}
-                dataObject={props.dataObject}
-                setDataObject={props.setDataObject}
-              />
+              <NewsCard key={p?.url} item={p} />
             ))}
           </>
         ) : (
           "data tidak ditemukan"
         )}
       </Cards>
-    </Rumah>
+    </Wrapper>
   );
 };
-
-const Rumah = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 40px;
-`;
-
-const Cards = styled.div`
-  display: flex;
-  width: 100%;
-  max-width: 1500px;
-  align-self: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-
-  @media (max-width: 737px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    align-self: center;
-    white-space: normal;
-    @media (max-width: 420px) {
-      font-size: 13px;
-      text-align: center;
-      padding: 0 10px;
-      img {
-        max-width: 350px;
-      }
-    }
-  }
-`;
-
-const Title = styled.div`
-  margin: 40px;
-  display: flex;
-  justify-content: center;
-`;
 
 export default Home;

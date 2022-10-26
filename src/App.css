@@ -8,4 +8,5 @@
 }
 html {
   background-color: #DEECFF;
+  scroll-behavior: smooth;
 }
