@@ -4,7 +4,7 @@ import NavBar from "./organisms/NavBar";
 import Footer from "./molecules/MoleFooter/Footer";
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+// import { css } from "@emotion/react";
 
 function App() {
   return (

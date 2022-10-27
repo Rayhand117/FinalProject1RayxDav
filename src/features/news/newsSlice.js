@@ -4,7 +4,7 @@ export const newsSlice = createSlice({
   name: 'news',
   initialState: {
     dataArray: [],
-    dataObject: {}
+    dataObject: {},
   },
   reducers: {
     saveNews: (state, action) => {

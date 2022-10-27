@@ -1,15 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import logoSave from "../../assets/save.svg";
 import logoPocket from "../../assets/pocket.svg";
 import logoTrash from "../../assets/trash.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { saveNews, unSaveNews } from "../../features/news/newsSlice";
 import {
-  FlexRow,
-  AnmTransisi,
-  FlexCentered,
   Toggle,
   Card,
   CardPicture,
@@ -17,7 +12,6 @@ import {
   Deskripsi,
   SourceStyle,
   Sumber,
-  TombolReuse,
   Simpan,
   UnSave,
   Baca,

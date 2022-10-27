@@ -1,8 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import CardBaru from "../molecules/MoleCardContent/NewsCard";
+import {
+  SearchPage,
+  Title,
+  Cards
+} from "./SearchWrapper.styled"
 
 const Search = (props) => {
   const [data, setData] = useState(props.data);
@@ -10,6 +13,7 @@ const Search = (props) => {
   useEffect(() => {
     setData(props.data);
   }, [props.data]);
+
   return (
     <SearchPage>
       <Title>
@@ -46,44 +50,4 @@ const Search = (props) => {
   );
 };
 
-const FlexCenter = css`
-  display: flex;
-  justify-content: center;
-`;
-
-const SearchPage = styled.div`
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Cards = styled.div`
-  ${FlexCenter};
-  align-self: center;
-  width: 100%;
-  max-width: 1500px;
-  flex-wrap: wrap;
-  flex-direction: row;
-
-  @media (max-width: 737px) {
-    ${FlexCenter};
-    align-self: center;
-    align-items: center;
-    font-size: 12px;
-    white-space: normal;
-    @media (max-width: 420px) {
-      font-size: 13px;
-      text-align: center;
-      padding: 0 10px;
-      img {
-        max-width: 350px;
-      }
-    }
-  }
-`;
-
-const Title = styled.div`
-  margin: 40px;
-  ${FlexCenter};
-`;
 export default Search;

@@ -1,6 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { useSelector } from "react-redux";
 import { Wrapper, Cards, Title } from "./PageWrapper.styled";
 import {
